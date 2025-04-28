@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 20th Birthday Francis!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎂 Happy 20th Birthday Francis! 🎂</h1>
+            <p class="subtitle">A journey through time</p>
+        </header>
+
+        <div class="birthday-message-section">
+            <div class="message-content">
+                <p class="emotional-message">
+                    As I turn 20 today, I look back at my journey from 2005 with gratitude and pride. 
+                    Every challenge I've faced has made me stronger, every success has made me wiser, 
+                    and every moment has shaped me into who I am today. 
+                    This milestone year marks not just my age, but the beginning of a new chapter 
+                    filled with dreams to chase and goals to achieve. 
+                    Here's to embracing my 20s with courage, passion, and the same determination 
+                    that has brought me this far! 🎉
+                </p>
+                <div class="heart-container">
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="photo-gallery">
+            <h2>Memories Through the Years</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="pri.jpg" alt="First Year">
+                    <div class="overlay">
+                        <span>My First first Years</span>
+                        <p class="memory-description">The beginning of my journey</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="pic.jpg" alt="Early Years">
+                    <div class="overlay">
+                        <span>Random</span>
+                        <p class="memory-description">Learning and growing</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="early.jpg" alt="Teenage Years">
+                    <div class="overlay">
+                        <span>2019 - Teenage Adventures</span>
+                        <p class="memory-description">Discovering myself</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="highschool.jpg" alt="High School">
+                    <div class="overlay">
+                        <span>2022 - High School Graduation</span>
+                        <p class="memory-description">A major milestone</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="uni.jpg" alt="Future">
+                    <div class="overlay">
+                        <span>2023 - Admitted to uni</span>
+                        <p class="memory-description">A new chapter begins</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Francis.jpg" alt="Currently">
+                    <div class="overlay">
+                        <span>2025 - Currently...Kijana handsome..🙂😅</span>
+                        <p class="memory-description">A new chapter begins</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stopwatch-section">
+            <h2>Time Since 2005</h2>
+            <div class="stopwatch">
+                <div class="time-block">
+                    <span id="years">00</span>
+                    <span class="label">Years</span>
+                </div>
+                <div class="time-block">
+                    <span id="months">00</span>
+                    <span class="label">Months</span>
+                </div>
+                <div class="time-block">
+                    <span id="days">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="time-block">
+                    <span id="hours">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="time-block">
+                    <span id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="time-block">
+                    <span id="seconds">00</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-section">
+            <h2>💌 Send a Birthday Message</h2>
+            <div class="message-container">
+                <div class="input-group">
+                    <div class="phone-input">
+                        <span class="prefix">+254</span>
+                        <input type="tel" id="message-phone" placeholder="7XXXXXXXX" maxlength="9" pattern="[0-9]{9}">
+                    </div>
+                    <div class="message-input">
+                        <textarea id="birthday-message" placeholder="Write your birthday message here..."></textarea>
+                    </div>
+                </div>
+                <button id="send-message" class="message-button">
+                    <i class="fab fa-whatsapp"></i>
+                    Send via WhatsApp
+                </button>
+            </div>
+            <p class="message-note">Your message will be sent directly to my WhatsApp</p>
+        </div>
+
+        <div class="gift-section">
+            <h2>🎁 Send a Birthday Gift</h2>
+            <div class="gift-container">
+                <div class="mpesa-info">
+                    <i class="fas fa-gift"></i>
+                    <p>Want to send a birthday gift? Use M-Pesa:</p>
+                    <div class="number-display">
+                        <span class="mpesa-number">0705764209</span>
+                        <button class="copy-button" onclick="copyNumber()">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <p class="gift-note">Your kindness means the world to me! 💝</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
