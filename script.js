@@ -12,9 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const endDate = new Date('2025-04-29T00:00:00');
     let hasCelebrated = false;
 
+    // Add these variables at the top of your script
+    const birthDate = new Date(2005, 3, 29); 
+    let currentAge = 20; // Starting age
+
     // Start the stopwatch
     updateStopwatch();
     setInterval(updateStopwatch, 1000);
+    setInterval(resetCelebrationFlag, 1000);
 
     sendMessageButton.addEventListener('click', async () => {
         const message = birthdayMessage.value.trim();
@@ -63,30 +68,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateStopwatch() {
         const now = new Date();
-        let difference = endDate - now;
+        const difference = now - birthDate;
 
-        // If we've reached the end date, set difference to 0
-        if (difference <= 0) {
-            difference = 0;
+        // Calculate years lived
+        const years = Math.floor(difference / (1000 * 60 * 60 * 24 * 365.25)); // Using 365.25 to account for leap years
+        
+        // Update current age if it's birthday
+        if (now.getMonth() === birthDate.getMonth() && now.getDate() === birthDate.getDate() && years > currentAge) {
+            currentAge = years;
+            // Update the title dynamically
+            document.querySelector('h1').innerHTML = `🎂 Happy ${currentAge}th Birthday Francis! 🎂`;
+            
+            // Trigger celebration if it's birthday
             if (!hasCelebrated) {
                 celebrate();
                 hasCelebrated = true;
             }
         }
 
-        const years = Math.floor(difference / (1000 * 60 * 60 * 24 * 365));
-        const months = Math.floor((difference % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-        const days = Math.floor((difference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+        // Calculate remaining time components
+        const months = Math.floor((difference % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+        const days = Math.floor((difference % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
         const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
+        // Update the display
         document.getElementById('years').textContent = years.toString().padStart(2, '0');
         document.getElementById('months').textContent = months.toString().padStart(2, '0');
         document.getElementById('days').textContent = days.toString().padStart(2, '0');
         document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
         document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
         document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+
+    // Reset hasCelebrated at midnight
+    function resetCelebrationFlag() {
+        const now = new Date();
+        if (now.getHours() === 0 && now.getMinutes() === 0 && now.getSeconds() === 0) {
+            hasCelebrated = false;
+        }
     }
 
     function celebrate() {
